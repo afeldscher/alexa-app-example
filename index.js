@@ -6,6 +6,7 @@ var app = express();
 
 // ALWAYS setup the alexa app and attach it to express before anything else.
 var alexaApp = new alexa.app("alexa");
+app.use(express.static('public'));
 
 alexaApp.express({
   expressApp: app,
@@ -27,7 +28,7 @@ alexaApp.express({
 app.set("view engine", "ejs");
 
 alexaApp.launch(function(request, response) {
-  response.say("It's time to <audio src='https://raw.githubusercontent.com/afeldscher/DogWalked/master/DogWalked/Content/pivot_sm.mp3'/>");
+  response.say("It's time to <audio src='https://ducks-alexa.azurewebsites.net/pivot_sm.mp3'/>");
 });
 
 
